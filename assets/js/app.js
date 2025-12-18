@@ -1,30 +1,19 @@
-$(document).ready(function () {
-    // 1. Tự động tạo mục lục
-    var data = document.querySelectorAll("h2");
-    var parent = document.getElementById('menu-right');
-    
-    if(data.length > 0) {
-        for (var i = 0; i < data.length; i++) {
-            if(!data[i].id) { data[i].id = "section-" + i; }
-            var newChild = '<a href="#' + data[i].id + '" style="color: #333; display:block; padding: 5px 0;">' + data[i].innerText + '</a>';
-            if(parent) parent.insertAdjacentHTML('beforeend', newChild);
-        }
-    }
-});
+// Mở Menu Mobile
+function openNav() {
+    document.getElementById("mobileNav").style.width = "100%";
+}
 
-$(window).scroll(function() {
-    // 2. Nút Back to top
-    if ($(this).scrollTop() > 100) {
-        $('#toTop').fadeIn();
-    } else {
-        $('#toTop').fadeOut();
-    }
-});
+// Đóng Menu Mobile
+function closeNav() {
+    document.getElementById("mobileNav").style.width = "0%";
+}
 
-$('#toTop').click(function(){
-    $('html, body').animate({scrollTop : 0}, 200);
-    return false;
+$(document).ready(function() {
+    // Tự động tạo mục lục từ thẻ H2
+    $('h2').each(function(index) {
+        var id = 'section-' + index;
+        $(this).attr('id', id);
+        // Thêm vào sidebar phải
+        $('#toc-list').append('<a href="#' + id + '" style="display:block; padding:5px 0; color:#333;">' + $(this).text() + '</a>');
+    });
 });
-
-function openNav() { document.getElementById("mainNav").style.display = "block"; }
-function closeNav() { document.getElementById("mainNav").style.display = "none"; }
