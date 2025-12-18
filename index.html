@@ -5,103 +5,175 @@
     <title>Neem.vn - Cẩm nang tổng hợp kiến thức về cây Neem (Cây Ninh)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Chuyên trang kiến thức về bột Neem, dầu Neem và cách trị mụn, làm đẹp từ thảo dược Ấn Độ.">
-
-    <!-- CSS gốc gaolut (nếu còn dùng layout) -->
+    
     <link href="https://www.gaolut.com/themes/gaolut/assets/css/style.css" rel="stylesheet">
-
-    <!-- CSS RIÊNG CỦA NEEM -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header class="uppercase pt-30 pb-100">
-    <div class="container">
+    <header class="uppercase pt-30 pb-100">
+        <div class="container">
+            <div class="d-flex justify-between align-items-center" id="menus">
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()" class="mobile-menu">&#9776;</span>
+                
+                <a href="/"><img src="https://www.gaolut.com/themes/gaolut/assets/img/gao-lut-logo.svg" class="logo" alt="Logo" style="filter: brightness(0) invert(1);"></a>
+                
+                <div style="font-size:30px;cursor:pointer" onclick="openSubNav()" class="mobile-menu">
+                    <img src="https://www.gaolut.com/themes/gaolut/assets/img/submenu.svg" class="submenu-img">
+                </div>
+            </div>
 
-        <div class="d-flex justify-between align-items-center" id="menus">
-            <span class="mobile-menu" onclick="openNav()">&#9776;</span>
+            <div id="mainNav" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="overlay-content pb-15 uppercase">
+                    <a href="/" class="active">Trang chủ</a>
+                    <a href="/bot-neem">Bột Neem</a>
+                    <a href="/dau-neem">Dầu Neem</a>
+                    <a href="/xa-phong-neem">Xà phòng Neem</a>
+                    <a href="/neem-tri-mun">Trị mụn</a>
+                    <a href="/mua-neem-o-dau">Mua ở đâu?</a>
+                </div>
+            </div>
+            
+            <div id="subNav" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeSubNav()">&times;</a>
+                <div class="overlay-content pb-15"></div>
+            </div>
 
-            <a href="/">
-                <img src="https://www.gaolut.com/themes/gaolut/assets/img/gao-lut-logo.svg"
-                     class="logo"
-                     alt="Logo"
-                     style="filter: brightness(0) invert(1);">
+            <div class="d-flex justify-center mt-30">
+                <div class="d-inline-block text-center">
+                    <p class="font-96 mb-0" style="font-size: 60px; line-height: 1; font-weight: bold;">NEEM.VN</p>
+                    <p class="mt-0" style="letter-spacing: 2px; font-size: 18px;">KIẾN THỨC CHUYÊN SÂU VỀ THẢO DƯỢC NEEM</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="container">
+        <div class="neem-grid-container">
+            
+            <a href="/bot-neem">
+                <div class="category uppercase" style="background: url('https://via.placeholder.com/300x200?text=Bot+Neem');">
+                    <p>Bột Neem Ấn Độ</p>
+                </div>
+            </a>
+            <a href="/dau-neem">
+                <div class="category uppercase" style="background: url('https://via.placeholder.com/300x200?text=Dau+Neem');">
+                    <p>Dầu Neem Nguyên Chất</p>
+                </div>
+            </a>
+            <a href="/xa-phong-neem">
+                <div class="category uppercase" style="background: url('https://via.placeholder.com/300x200?text=Xa+Phong');">
+                    <p>Xà phòng Neem</p>
+                </div>
+            </a>
+            <a href="/neem-tri-mun">
+                <div class="category uppercase" style="background: url('https://via.placeholder.com/300x200?text=Tri+Mun');">
+                    <p>Neem Trị Mụn</p>
+                </div>
+            </a>
+            <a href="/neem-trang-da">
+                <div class="category uppercase" style="background: url('https://via.placeholder.com/300x200?text=Trang+Da');">
+                    <p>Neem Trắng Da</p>
+                </div>
             </a>
 
-            <div class="mobile-menu" onclick="openSubNav()">
-                <img src="https://www.gaolut.com/themes/gaolut/assets/img/submenu.svg">
-            </div>
+            <a href="/tra-la-neem">
+                <div class="category uppercase" style="background: url('https://via.placeholder.com/300x200?text=Tra+Neem');">
+                    <p>Trà Lá Neem</p>
+                </div>
+            </a>
+            <a href="/neem-thu-cung">
+                <div class="category uppercase" style="background: url('https://via.placeholder.com/300x200?text=Thu+Cung');">
+                    <p>Neem Cho Thú Cưng</p>
+                </div>
+            </a>
+            <a href="/sua-rua-mat-neem">
+                <div class="category uppercase" style="background: url('https://via.placeholder.com/300x200?text=Sua+Rua+Mat');">
+                    <p>Sữa Rửa Mặt Neem</p>
+                </div>
+            </a>
+            <a href="/kem-danh-rang-neem">
+                <div class="category uppercase" style="background: url('https://via.placeholder.com/300x200?text=Kem+Danh+Rang');">
+                    <p>Kem Đánh Răng Neem</p>
+                </div>
+            </a>
+            <a href="/mua-neem-o-dau">
+                <div class="category uppercase" style="background: url('https://via.placeholder.com/300x200?text=Mua+O+Dau');">
+                    <p>Mua Neem Ở Đâu?</p>
+                </div>
+            </a>
+
         </div>
+    </section>
 
-        <div id="mainNav" class="overlay">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <div class="overlay-content uppercase">
-                <a href="/" class="active">Trang chủ</a>
-                <a href="/bot-neem">Bột Neem</a>
-                <a href="/dau-neem">Dầu Neem</a>
-                <a href="/xa-phong-neem">Xà phòng Neem</a>
-                <a href="/neem-tri-mun">Trị mụn</a>
-                <a href="/mua-neem-o-dau">Mua ở đâu?</a>
-            </div>
-        </div>
-
-        <div id="subNav" class="overlay">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeSubNav()">&times;</a>
-            <div class="overlay-content"></div>
-        </div>
-
-        <div class="text-center mt-30">
-            <p class="font-96 mb-0">NEEM.VN</p>
-            <p>KIẾN THỨC CHUYÊN SÂU VỀ THẢO DƯỢC NEEM</p>
-        </div>
-
-    </div>
-</header>
-
-<section class="container">
-    <div class="neem-grid-container">
-
-        <!-- GIỮ NGUYÊN HTML CATEGORY -->
-        <!-- (copy y nguyên phần category của bạn, không sửa) -->
-
-    </div>
-</section>
-
-<section class="d-flex flex-wrap container align-items-start mb-60">
-
-    <nav class="sidebar uppercase">
-        <a href="/" class="active">Trang chủ Neem</a>
-        <a href="/bot-neem">Bột Neem</a>
-        <a href="/dau-neem">Dầu Neem</a>
-        <a href="/xa-phong-neem">Xà phòng Neem</a>
-        <a href="/neem-tri-mun">Neem trị mụn</a>
-        <a href="/mua-neem-o-dau">Mua Neem ở đâu?</a>
-    </nav>
-
-    <div id="content" class="pl-60 pr-60 content">
-        <!-- CONTENT GIỮ NGUYÊN -->
-    </div>
-
-    <div class="content-menu">
-        <nav id="menu-right">
-            <p class="uppercase">Mục Lục Bài Viết</p>
+    <section class="d-flex flex-wrap container align-items-start mb-60">
+        
+        <nav class="sidebar uppercase">
+            <a href="/" class="active">Trang chủ Neem</a>
+            <a href="/bot-neem">Bột Neem Ấn Độ</a>
+            <a href="/dau-neem">Dầu Neem nguyên chất</a>
+            <a href="/xa-phong-neem">Xà phòng Neem</a>
+            <a href="/neem-tri-mun">Neem trị mụn</a>
+            <a href="/neem-trang-da">Neem trắng da</a>
+            <a href="/tra-la-neem">Trà lá Neem</a>
+            <a href="/mua-neem-o-dau">Mua Neem ở đâu uy tín?</a>
         </nav>
-    </div>
 
-</section>
+        <div id="content" class="pl-60 pr-60 content">
+            <h1 class="uppercase mt-0">Kiến thức về cây Neem (Cây Ninh)</h1>
+            
+            <h2 class="uppercase mt-0 title page-section" id="neem-la-gi">
+                <strong>I. Cây Neem là gì? Nguồn gốc xuất xứ</strong>
+            </h2>
+            <p style="text-align: justify;">
+                Cây Neem (tên khoa học là Azadirachta indica), người Việt Nam thường gọi là cây Ninh hoặc sầu đâu. Đây là loại thảo dược có nguồn gốc từ Ấn Độ, được mệnh danh là "cây thần dược" bởi hầu hết các bộ phận của cây từ lá, vỏ, hạt đến rễ đều có giá trị chữa bệnh và làm đẹp.
+            </p>
+            <p style="text-align: center;">
+                <img src="https://via.placeholder.com/800x400?text=Hinh+Anh+Cay+Neem" class="fr-fic fr-dib w-100" alt="Hình ảnh cây Neem">
+            </p>
 
-<footer class="pt-30">
-    <div class="light-bg">
-        <p>© neem.vn 2025</p>
-    </div>
-</footer>
+            <h2 class="uppercase mt-0 title page-section" id="cong-dung-lam-dep">
+                <strong>II. Công dụng làm đẹp thần thánh của Neem</strong>
+            </h2>
+            <p style="text-align: justify;">
+                Trong giới làm đẹp, bột Neem và dầu Neem là khắc tinh của các loại mụn. Nhờ đặc tính kháng khuẩn cực mạnh, Neem giúp tiêu diệt vi khuẩn gây mụn trứng cá, làm khô còi mụn nhanh chóng và ngăn ngừa thâm sẹo.
+            </p>
+            
+            <h2 class="uppercase mt-0 title page-section" id="luu-y-khi-dung">
+                <strong>III. Lưu ý quan trọng khi sử dụng</strong>
+            </h2>
+            <p style="text-align: justify;">
+                Mặc dù là thảo dược thiên nhiên nhưng Neem có dược tính mạnh. Phụ nữ mang thai hoặc đang muốn có thai nên thận trọng khi sử dụng các sản phẩm uống từ Neem.
+            </p>
+        </div>
 
-<button id="toTop">
-    <img src="https://www.gaolut.com/themes/gaolut/assets/img/back-to-top.svg">
-</button>
+        <div class="content-menu">
+            <nav id="menu-right" class="mb-30">
+                <p class="uppercase" style="color: #155d27; font-weight: bold;">Mục Lục Bài Viết</p>
+            </nav>
+            <a href="/mua-neem-o-dau" class="ad">
+                <img src="https://via.placeholder.com/300x500?text=Quang+Cao+Neem" class="w-100">
+            </a>
+        </div>
+    </section>
 
-<script src="https://www.gaolut.com/themes/gaolut/assets/vendor/jquery.js"></script>
-<script src="assets/js/app.js"></script>
+    <footer class="pt-30">
+        <div class="light-bg" style="border-top: 5px solid #155d27;">
+            <a href="/"><img src="https://www.gaolut.com/themes/gaolut/assets/img/gao-lut-orange-logo.svg" alt="Logo" style="filter: hue-rotate(90deg) brightness(0.5);"></a>
+            <p>Neem.vn - Cẩm nang kiến thức chuyên sâu về bột Neem, dầu Neem và các sản phẩm thiên nhiên từ Ấn Độ.</p>
+            <p>©neem.vn 2025</p>
+        </div>
+    </footer>
 
+    <button id="toTop" style="background: #155d27;"><img src="https://www.gaolut.com/themes/gaolut/assets/img/back-to-top.svg"></button>
+
+    <script src="https://www.gaolut.com/themes/gaolut/assets/vendor/jquery.js"></script>
+    <script src="https://www.gaolut.com/themes/gaolut/assets/vendor/bootstrap.js"></script>
+    <script src="https://www.gaolut.com/themes/gaolut/assets/javascript/app.js"></script>
+    
+    <script src="script.js"></script>
 </body>
 </html>
