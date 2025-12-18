@@ -6,60 +6,36 @@ a { text-decoration: none; color: inherit; }
 .mt-50 { margin-top: 50px; }
 .mb-50 { margin-bottom: 50px; }
 
-/* HEADER STYLES */
+/* HEADER & MENU */
 .nav-wrapper {
     background-color: #155d27;
-    height: 70px;
-    width: 100%;
+    height: 70px; width: 100%;
     position: sticky; top: 0; z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .nav-flex {
-    display: flex;
-    justify-content: space-between; /* Đẩy Logo sang trái, Menu sang phải */
-    align-items: center;
-    height: 100%;
+    display: flex; justify-content: space-between; align-items: center; height: 100%;
 }
 
-.logo-box {
-    display: flex; align-items: center;
-    height: 100%;
-}
+.logo-box { display: flex; align-items: center; height: 100%; }
+.main-logo { height: 45px; width: auto; filter: brightness(0) invert(1); } /* Logo trắng */
+.footer-logo { height: 40px; margin-bottom: 10px; }
 
-.main-logo {
-    height: 45px;
-    width: auto;
-    filter: brightness(0) invert(1); /* Logo trắng */
-}
-
-.footer-logo {
-    height: 40px; 
-    margin-bottom: 10px;
-}
-
-/* MENU DESKTOP (Mặc định ẩn, sẽ hiện bằng media query) */
+/* MENU DESKTOP */
 .desktop-menu { 
-    list-style: none; 
-    display: none; /* Mặc định ẩn để tránh vỡ layout */
-    gap: 20px; 
+    list-style: none; display: none; gap: 20px; 
 }
-
 .desktop-menu li a {
     color: white; font-weight: bold; text-transform: uppercase; font-size: 14px;
     padding: 10px; transition: 0.3s;
 }
 .desktop-menu li a:hover { color: #81c784; }
-
-.btn-buy {
-    border: 1px solid white; padding: 8px 15px !important; border-radius: 4px;
-}
+.btn-buy { border: 1px solid white; padding: 8px 15px !important; border-radius: 4px; }
 .btn-buy:hover { background: white; color: #155d27 !important; }
 
-/* NÚT MOBILE TOGGLE (Mặc định hiện) */
-.mobile-toggle { 
-    color: white; font-size: 28px; cursor: pointer; display: block; 
-}
+/* NÚT MOBILE */
+.mobile-toggle { color: white; font-size: 28px; cursor: pointer; display: block; }
 
 /* BANNER */
 .hero-banner {
@@ -68,8 +44,7 @@ a { text-decoration: none; color: inherit; }
     display: flex; align-items: center; justify-content: center; text-align: center;
 }
 .hero-banner::before {
-    content: ""; position: absolute; inset: 0;
-    background: rgba(0,0,0,0.4); /* Lớp phủ tối */
+    content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.4);
 }
 .hero-content { position: relative; z-index: 1; color: white; }
 .hero-content h1 { font-size: 48px; margin-bottom: 10px; text-transform: uppercase; }
@@ -77,18 +52,13 @@ a { text-decoration: none; color: inherit; }
 
 /* GRID DANH MỤC */
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Mobile mặc định 2 cột */
-    gap: 15px;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;
 }
-
 .grid-item {
-    height: 160px;
-    background-color: #a5d6a7; /* Màu nền dự phòng nếu ảnh lỗi */
+    height: 160px; background-color: #a5d6a7;
     background-size: cover; background-position: center;
     border-radius: 5px; position: relative; overflow: hidden;
-    transition: transform 0.3s;
-    display: block;
+    transition: transform 0.3s; display: block;
 }
 .grid-item:hover { transform: translateY(-5px); }
 .grid-item .label {
@@ -100,14 +70,14 @@ a { text-decoration: none; color: inherit; }
 
 /* LAYOUT */
 .main-layout { display: flex; flex-direction: column; gap: 30px; }
-.sidebar, .ads-bar { display: none; } /* Mobile ẩn sidebar */
+.sidebar, .ads-bar { display: none; }
 .content { width: 100%; }
 .content h2 { color: #155d27; border-bottom: 2px solid #155d27; padding-bottom: 5px; margin-top: 30px; }
 
 /* FOOTER */
 footer { background: #f9f9f9; padding: 30px 0; text-align: center; border-top: 5px solid #155d27; }
 
-/* MOBILE MENU OVERLAY */
+/* OVERLAY MOBILE */
 .overlay {
     height: 100%; width: 0; position: fixed; z-index: 2000;
     top: 0; left: 0; background-color: rgba(0,0,0, 0.95);
@@ -118,25 +88,17 @@ footer { background: #f9f9f9; padding: 30px 0; text-align: center; border-top: 5
 .overlay a:hover { color: #f1f1f1; }
 .overlay .closebtn { position: absolute; top: 20px; right: 30px; font-size: 50px; }
 
-
-/* =======================================================
-   MEDIA QUERY - PHẦN QUAN TRỌNG NHẤT ĐỂ FIX LỖI DESKTOP
-   ======================================================= */
-
-/* Khi màn hình lớn hơn 992px (Laptop/PC) */
+/* =========================================
+   MEDIA QUERY: FIX LỖI DESKTOP
+   ========================================= */
 @media (min-width: 992px) {
-    /* 1. Hiện menu ngang */
-    .desktop-menu { display: flex; }
+    .desktop-menu { display: flex; } /* Hiện menu ngang */
+    .mobile-toggle { display: none; } /* Ẩn nút 3 gạch */
     
-    /* 2. Ẩn nút 3 gạch */
-    .mobile-toggle { display: none; }
-    
-    /* 3. Grid thành 5 cột */
     .grid-container { grid-template-columns: repeat(5, 1fr); gap: 20px; }
     .grid-item { height: 200px; }
     .grid-item .label { font-size: 14px; }
 
-    /* 4. Layout 3 cột */
     .main-layout { flex-direction: row; }
     .sidebar { display: block; width: 20%; background: #f1f8e9; padding: 15px; border-radius: 5px; height: fit-content; }
     .ads-bar { display: block; width: 20%; }
