@@ -1,61 +1,58 @@
 /* =========================================
-   1. CẤU HÌNH MÀU SẮC & FONT CHỮ
+   1. IMPORT THƯ VIỆN BOOTSTRAP (CDN)
    ========================================= */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap.min.css');
 
-/* --- Đổi màu Tiêu đề (H1, H2) sang Xanh Lá Đậm (Theo Logo) --- */
-h1, h2, h3, .title, .page-section strong {
-    color: #155d27 !important; /* Màu xanh đậm của logo */
-}
+/* =========================================
+   2. CÁC CLASS TIỆN ÍCH (HELPER)
+   ========================================= */
+body { font-family: Arial, sans-serif; color: #333; }
+.uppercase { text-transform: uppercase; }
+.d-flex { display: flex; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.align-items-center { align-items: center; }
+.align-items-start { align-items: flex-start; }
+.text-center { text-align: center; }
+.w-100 { width: 100%; }
 
-/* --- MENU BÊN TRÁI (SIDEBAR) --- */
-.sidebar {
-    background-color: #f1f8e9 !important; /* Nền xanh cốm nhạt */
-    border: 1px solid #c5e1a5; /* Viền xanh nhẹ bao quanh */
-    border-radius: 5px;
-    overflow: hidden;
-    padding: 0;
-}
+/* Khoảng cách (Margin/Padding) */
+.mt-0 { margin-top: 0; }
+.mt-30 { margin-top: 30px; }
+.mb-0 { margin-bottom: 0; }
+.mb-30 { margin-bottom: 30px; }
+.mb-60 { margin-bottom: 60px; }
+.pt-30 { padding-top: 30px; }
+.pb-15 { padding-bottom: 15px; }
+.pb-100 { padding-bottom: 100px; }
+.pl-60 { padding-left: 60px; }
+.pr-60 { padding-right: 60px; }
 
-/* Định dạng từng dòng link trong menu */
-.sidebar a {
-    color: #000000 !important; /* CHỮ MÀU ĐEN */
-    font-weight: normal !important; /* Chữ thường, không in đậm */
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    
-    display: block;
-    padding: 12px 15px;
-    border-bottom: 1px solid #dcedc8 !important; /* Đường kẻ ngang mờ màu xanh */
-    text-decoration: none;
-    transition: all 0.2s ease;
-}
-
-/* Hiệu ứng khi di chuột vào menu */
-.sidebar a:hover, .sidebar a.active {
-    background-color: #c8e6c9 !important; /* Nền đậm hơn chút khi hover */
-    color: #000000 !important;
-    padding-left: 20px;
-}
-
-.sidebar a:last-child {
-    border-bottom: none !important;
+/* Responsive cho Padding */
+@media (max-width: 768px) {
+    .pl-60, .pr-60 { padding-left: 15px; padding-right: 15px; }
+    .font-96 { font-size: 40px !important; }
 }
 
 /* =========================================
-   2. CSS CHO HEADER
+   3. GIAO DIỆN CHÍNH (THEME)
    ========================================= */
+
+/* --- Tiêu đề --- */
+h1, h2, h3, .title, .page-section strong {
+    color: #155d27 !important;
+}
+
+/* --- Header --- */
 header {
     color: white;
-    /* Ảnh nền header (Bạn thay ảnh thật của bạn vào đây) */
+    /* Ảnh nền header */
     background: url('https://upload.wikimedia.org/wikipedia/commons/6/69/Azadirachta_indica_tree.JPG') center; 
     background-color: #155d27; 
     background-size: cover;
-    font-family: SVNBlack, sans-serif;
     text-shadow: 0px 0px 10px rgba(0,0,0,0.8);
     position: relative;
 }
-
-/* Lớp phủ màu xanh lên ảnh banner */
 header::before {
     content: "";
     position: absolute;
@@ -63,14 +60,41 @@ header::before {
     background: rgba(21, 93, 39, 0.7);
     z-index: 0;
 }
-header .container {
-    position: relative;
-    z-index: 1;
-}
+header .container { position: relative; z-index: 1; }
+.logo { max-height: 70px; }
 
-/* =========================================
-   3. CSS LƯỚI DANH MỤC 5 CỘT
-   ========================================= */
+/* --- Menu Sidebar --- */
+.sidebar {
+    background-color: #f1f8e9 !important;
+    border: 1px solid #c5e1a5;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 0;
+    width: 250px; /* Chiều rộng cố định cho đẹp */
+    flex-shrink: 0;
+}
+.sidebar a {
+    color: #000000 !important;
+    font-weight: normal !important;
+    font-size: 15px;
+    display: block;
+    padding: 12px 15px;
+    border-bottom: 1px solid #dcedc8 !important;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+.sidebar a:hover, .sidebar a.active {
+    background-color: #c8e6c9 !important;
+    color: #000000 !important;
+    padding-left: 20px;
+}
+.sidebar a:last-child { border-bottom: none !important; }
+
+/* --- Nội dung chính & Menu phải --- */
+.content { flex: 1; } /* Chiếm phần còn lại */
+.content-menu { width: 300px; flex-shrink: 0; }
+
+/* --- Grid Danh mục --- */
 .neem-grid-container {
     display: flex;
     flex-wrap: wrap;
@@ -79,7 +103,6 @@ header .container {
     margin-top: 30px;
     margin-bottom: 60px;
 }
-
 .neem-grid-container > a {
     flex: 0 0 20%; 
     max-width: 20%;
@@ -88,7 +111,6 @@ header .container {
     display: block;
     text-decoration: none;
 }
-
 .category {
     width: 100%;
     height: 200px;
@@ -101,32 +123,61 @@ header .container {
     transition: transform 0.3s, box-shadow 0.3s;
     margin-bottom: 0 !important;
 }
-
 .category:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
-
 .category p {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    margin: 0;
+    bottom: 0; left: 0; width: 100%; margin: 0;
     padding: 10px;
     background: linear-gradient(to top, rgba(21, 93, 39, 0.9), transparent);
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 13px;
-    text-align: left;
+    color: white; font-weight: bold; text-transform: uppercase;
+    font-size: 13px; text-align: left;
 }
 
-/* =========================================
-   4. RESPONSIVE
-   ========================================= */
+/* --- Mobile Menu (Overlay) --- */
+.overlay {
+    height: 100%; width: 100%;
+    position: fixed; z-index: 9999;
+    top: 0; left: 0;
+    background-color: rgba(0,0,0, 0.95);
+    overflow-y: hidden;
+    transition: 0.5s;
+    display: none; /* Mặc định ẩn */
+}
+.overlay-content {
+    position: relative;
+    top: 10%; width: 100%;
+    text-align: center; margin-top: 30px;
+}
+.overlay a {
+    padding: 8px; text-decoration: none;
+    font-size: 24px; color: #818181;
+    display: block; transition: 0.3s;
+}
+.overlay a:hover, .overlay a:focus { color: #f1f1f1; }
+.overlay .closebtn {
+    position: absolute; top: 20px; right: 45px; font-size: 60px;
+}
+
+/* --- Footer & Nút Back to top --- */
+footer { text-align: center; }
+footer .light-bg { background: #f8f9fa; padding: 30px 0; }
+footer img { height: 40px; margin-bottom: 15px; }
+
+#toTop {
+    display: none; position: fixed; bottom: 20px; right: 30px;
+    z-index: 99; border: none; outline: none;
+    color: white; cursor: pointer; padding: 15px; border-radius: 50%;
+    width: 50px; height: 50px;
+}
+
+/* --- Responsive Layout --- */
 @media (max-width: 992px) {
     .neem-grid-container > a { flex: 0 0 33.33%; max-width: 33.33%; }
+    .sidebar, .content-menu { display: none; } /* Ẩn sidebar trên tablet/mobile cho gọn */
+    .pl-60, .pr-60 { padding: 0; }
 }
 @media (max-width: 600px) {
     .neem-grid-container > a { flex: 0 0 50%; max-width: 50%; }
