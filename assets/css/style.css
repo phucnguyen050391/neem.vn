@@ -108,8 +108,107 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* LAYOUT */
-.main-layout { display: flex; flex-direction: column; gap: 30px; }
-.sidebar, .ads-bar { display: none; }
+/* --- LAYOUT 2 CỘT: TRÁI (MỤC LỤC) - PHẢI (NỘI DUNG) --- */
+
+.main-layout {
+    display: flex;
+    flex-direction: column; /* Mobile mặc định dọc */
+    gap: 30px;
+}
+
+/* Định dạng Cột Trái (Giống style Danh mục cũ) */
+.sidebar-left {
+    background-color: #f1f8e9; /* Nền xanh cốm nhạt */
+    border: 1px solid #c5e1a5;
+    border-radius: 5px;
+    padding: 0; /* Xóa padding để viền sát lề */
+    height: fit-content; /* Chiều cao tùy theo nội dung */
+    overflow: hidden;
+}
+
+.sidebar-title {
+    background-color: #155d27; /* Tiêu đề nền xanh đậm */
+    color: white !important;
+    margin: 0;
+    padding: 15px;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Định dạng các link trong Mục lục (Giống menu cũ) */
+.sidebar-menu a {
+    display: block;
+    padding: 12px 15px;
+    color: #333;
+    font-size: 14px;
+    border-bottom: 1px solid #dcedc8; /* Dòng kẻ mờ */
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.sidebar-menu a:hover {
+    background-color: #c8e6c9; /* Hover đậm hơn chút */
+    color: #000;
+    padding-left: 20px; /* Hiệu ứng đẩy chữ */
+    text-decoration: none;
+}
+
+.sidebar-menu a:last-child {
+    border-bottom: none; /* Bỏ dòng kẻ cuối cùng */
+}
+
+/* Quảng cáo trong sidebar */
+.sidebar-ad {
+    padding: 15px;
+    text-align: center;
+    background: #fff; /* Nền trắng cho ảnh nổi bật */
+    border-top: 1px solid #c5e1a5;
+}
+
+/* Cột Nội dung */
+.content {
+    width: 100%;
+}
+.content h2 {
+    color: #155d27;
+    border-bottom: 2px solid #155d27;
+    padding-bottom: 8px;
+    margin-top: 30px;
+    font-size: 24px;
+}
+
+/* --- MEDIA QUERY (DESKTOP) --- */
+@media (min-width: 992px) {
+    .main-layout {
+        flex-direction: row; /* Xếp ngang */
+        justify-content: space-between;
+    }
+
+    /* Cột Trái: 25% */
+    .sidebar-left {
+        display: block;
+        width: 25%;
+        position: sticky; /* Giúp mục lục trượt theo khi cuộn */
+        top: 90px; /* Cách mép trên (tránh menu chính) */
+    }
+
+    /* Cột Phải: 72% */
+    .content {
+        width: 72%;
+    }
+}
+
+/* --- MEDIA QUERY (MOBILE) --- */
+@media (max-width: 991px) {
+    /* Trên mobile ẩn cột trái (Mục lục) đi cho gọn, hoặc để nó ở trên cùng */
+    /* Ở đây tôi chọn ẩn đi vì mobile màn hình bé, nội dung quan trọng hơn */
+    /* Nếu muốn hiện thì xóa dòng display: none; */
+    .sidebar-left {
+        display: none; 
+    }
+}
+
 .content { width: 100%; }
 .content h2 { color: #155d27; border-bottom: 2px solid #155d27; padding-bottom: 5px; margin-top: 30px; }
 
@@ -217,4 +316,5 @@ footer { background: #f9f9f9; padding: 30px 0; text-align: center; border-top: 5
         margin-bottom: 5px;
         display: block;
     }
+
 
