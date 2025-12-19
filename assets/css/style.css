@@ -317,4 +317,15 @@ footer { background: #f9f9f9; padding: 30px 0; text-align: center; border-top: 5
         display: block;
     }
 
+/* Tác động vào tất cả danh sách trong phần nội dung bài viết */
+.content ul, .content ol {
+    padding-left: 30px !important; /* Đẩy lùi đầu dòng vào 30px */
+    margin-bottom: 15px;
+}
+
+/* Tăng khoảng cách giữa các dòng cho dễ đọc hơn */
+.content li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
 
