@@ -1,4 +1,6 @@
-/* RESET */
+/* =========================================
+   1. RESET & CẤU HÌNH CHUNG
+   ========================================= */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: Arial, sans-serif; color: #333; line-height: 1.6; }
 a { text-decoration: none; color: inherit; }
@@ -6,7 +8,9 @@ a { text-decoration: none; color: inherit; }
 .mt-50 { margin-top: 50px; }
 .mb-50 { margin-bottom: 50px; }
 
-/* HEADER & MENU */
+/* =========================================
+   2. HEADER & MENU
+   ========================================= */
 .nav-wrapper {
     background-color: #155d27;
     height: 70px; width: 100%;
@@ -18,8 +22,6 @@ a { text-decoration: none; color: inherit; }
     display: flex; justify-content: space-between; align-items: center; height: 100%;
 }
 
-
-
 .logo-box {
     display: flex; align-items: center;
     height: 100%;
@@ -27,13 +29,13 @@ a { text-decoration: none; color: inherit; }
 }
 
 .main-logo {
-    height: 65px;
+    height: 65px; /* Kích thước logo */
     width: auto;
-
 }
+
 .footer-logo { height: 40px; margin-bottom: 10px; }
 
-/* MENU DESKTOP */
+/* MENU DESKTOP (Mặc định ẩn) */
 .desktop-menu { 
     list-style: none; display: none; gap: 20px; 
 }
@@ -45,10 +47,12 @@ a { text-decoration: none; color: inherit; }
 .btn-buy { border: 1px solid white; padding: 8px 15px !important; border-radius: 4px; }
 .btn-buy:hover { background: white; color: #155d27 !important; }
 
-/* NÚT MOBILE */
+/* NÚT MOBILE (Mặc định hiện) */
 .mobile-toggle { color: white; font-size: 28px; cursor: pointer; display: block; }
 
-/* BANNER */
+/* =========================================
+   3. BANNER HERO
+   ========================================= */
 .hero-banner {
     background-size: cover; background-position: center;
     height: 350px; position: relative;
@@ -59,37 +63,21 @@ a { text-decoration: none; color: inherit; }
 }
 .hero-content { position: relative; z-index: 1; color: white; }
 .hero-content h1 {
-    margin: 0;
-    color: white;
-    text-transform: uppercase;
-    display: flex;         /* Dùng flex để xếp chồng dọc */
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;             /* Khoảng cách giữa tên và slogan */
+    margin: 0; color: white; text-transform: uppercase;
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
 }
+.brand-name { font-size: 48px; font-weight: bold; display: block; }
+.brand-slogan { font-size: 18px; font-weight: normal; letter-spacing: 2px; display: block; }
 
-/* Định dạng cho chữ NEEM.VN */
-.brand-name {
-    font-size: 48px;
-    font-weight: bold;
-    display: block;
-}
-
-/* Định dạng cho dòng slogan */
-.brand-slogan {
-    font-size: 18px;
-    font-weight: normal; /* Slogan thường mảnh hơn tiêu đề chính */
-    letter-spacing: 2px;
-    display: block;
-}
-
-/* Responsive cho mobile (nếu cần) */
+/* Responsive text banner mobile */
 @media (max-width: 600px) {
     .brand-name { font-size: 32px; }
     .brand-slogan { font-size: 14px; letter-spacing: 1px; }
 }
 
-/* GRID DANH MỤC */
+/* =========================================
+   4. GRID DANH MỤC
+   ========================================= */
 .grid-container {
     display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;
 }
@@ -107,115 +95,117 @@ a { text-decoration: none; color: inherit; }
     padding: 8px; text-transform: uppercase; text-align: left;
 }
 
-/* LAYOUT */
-/* --- LAYOUT 2 CỘT: TRÁI (MỤC LỤC) - PHẢI (NỘI DUNG) --- */
-
+/* =========================================
+   5. LAYOUT 2 CỘT (TRÁI - PHẢI)
+   ========================================= */
 .main-layout {
     display: flex;
-    flex-direction: column; /* Mobile mặc định dọc */
+    flex-direction: column; /* Mobile mặc định xếp dọc */
     gap: 30px;
 }
 
-/* Định dạng Cột Trái (Giống style Danh mục cũ) */
+/* CỘT TRÁI (MỤC LỤC) */
 .sidebar-left {
-    background-color: #f1f8e9; /* Nền xanh cốm nhạt */
+    background-color: #f1f8e9;
     border: 1px solid #c5e1a5;
     border-radius: 5px;
-    padding: 0; /* Xóa padding để viền sát lề */
-    height: fit-content; /* Chiều cao tùy theo nội dung */
+    padding: 0;
+    height: fit-content;
     overflow: hidden;
 }
 
 .sidebar-title {
-    background-color: #155d27; /* Tiêu đề nền xanh đậm */
+    background-color: #155d27;
     color: white !important;
-    margin: 0;
-    padding: 15px;
-    font-size: 16px;
-    text-transform: uppercase;
-    text-align: center;
+    margin: 0; padding: 15px; font-size: 16px;
+    text-transform: uppercase; text-align: center;
 }
 
-/* Định dạng các link trong Mục lục (Giống menu cũ) */
+/* Link trong mục lục */
 .sidebar-menu a {
-    display: block;
-    padding: 12px 15px;
-    color: #333;
-    font-size: 14px;
-    border-bottom: 1px solid #dcedc8; /* Dòng kẻ mờ */
-    transition: all 0.2s;
-    font-weight: 500;
+    display: block; padding: 12px 15px;
+    color: #333; font-size: 14px;
+    border-bottom: 1px solid #dcedc8;
+    transition: all 0.2s; font-weight: 500;
 }
-
 .sidebar-menu a:hover {
-    background-color: #c8e6c9; /* Hover đậm hơn chút */
-    color: #000;
-    padding-left: 20px; /* Hiệu ứng đẩy chữ */
-    text-decoration: none;
+    background-color: #c8e6c9; color: #000;
+    padding-left: 20px; text-decoration: none;
 }
+.sidebar-menu a:last-child { border-bottom: none; }
 
-.sidebar-menu a:last-child {
-    border-bottom: none; /* Bỏ dòng kẻ cuối cùng */
-}
-
-/* Quảng cáo trong sidebar */
+/* Quảng cáo sidebar */
 .sidebar-ad {
-    padding: 15px;
-    text-align: center;
-    background: #fff; /* Nền trắng cho ảnh nổi bật */
-    border-top: 1px solid #c5e1a5;
+    padding: 15px; text-align: center;
+    background: #fff; border-top: 1px solid #c5e1a5;
 }
 
-/* Cột Nội dung */
-.content {
-    width: 100%;
-}
+/* CỘT PHẢI (NỘI DUNG) */
+.content { width: 100%; }
 .content h2 {
-    color: #155d27;
-    border-bottom: 2px solid #155d27;
-    padding-bottom: 8px;
-    margin-top: 30px;
-    font-size: 24px;
+    color: #155d27; border-bottom: 2px solid #155d27;
+    padding-bottom: 8px; margin-top: 30px; font-size: 24px;
 }
 
-/* --- MEDIA QUERY (DESKTOP) --- */
+/* Style cho bài viết */
+.content ul, .content ol { padding-left: 30px !important; margin-bottom: 15px; }
+.content li { margin-bottom: 8px; line-height: 1.6; }
+.neem-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+.neem-table th, .neem-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+.neem-table th { background-color: #f2f2f2; color: #2c5e2e; }
+.note-box { background-color: #f9f9f9; border-left: 5px solid #2c5e2e; padding: 15px; margin: 20px 0; font-style: italic; }
+.success-box { background-color: #e8f5e9; border: 1px solid #c8e6c9; padding: 15px; border-radius: 5px; margin: 20px 0; }
+.diy-recipe { background-color: #fff8e1; padding: 15px; border-radius: 8px; border: 1px dashed #ffa000; margin-bottom: 20px; }
+.faq-item { margin-bottom: 20px; }
+.faq-question { font-weight: bold; color: #d32f2f; margin-bottom: 5px; display: block; }
+
+/* =========================================
+   6. MEDIA QUERIES (XỬ LÝ PC/MOBILE)
+   ========================================= */
+
+/* A. GIAO DIỆN DESKTOP (Màn hình > 992px) */
 @media (min-width: 992px) {
+    /* Menu & Grid */
+    .desktop-menu { display: flex; } /* Hiện menu ngang */
+    .mobile-toggle { display: none; } /* Ẩn nút 3 gạch */
+    .grid-container { grid-template-columns: repeat(5, 1fr); gap: 20px; }
+    .grid-item { height: 200px; }
+    .grid-item .label { font-size: 14px; }
+
+    /* Layout 2 cột */
     .main-layout {
         flex-direction: row; /* Xếp ngang */
         justify-content: space-between;
     }
 
-    /* Cột Trái: 25% */
+    /* Cột Trái (Mục lục): 25% */
     .sidebar-left {
         display: block;
-        width: 50%;
-        position: sticky; /* Giúp mục lục trượt theo khi cuộn */
-        top: 90px; /* Cách mép trên (tránh menu chính) */
+        width: 25%; /* Chỉnh lại 25% cho đẹp, 50% là quá to */
+        position: sticky;
+        top: 90px;
     }
 
-    /* Cột Phải: 72% */
+    /* Cột Phải (Nội dung): 72% */
     .content {
         width: 72%;
     }
 }
 
-/* --- MEDIA QUERY (MOBILE) --- */
+/* B. GIAO DIỆN MOBILE (Màn hình < 991px) */
 @media (max-width: 991px) {
-    /* Trên mobile ẩn cột trái (Mục lục) đi cho gọn, hoặc để nó ở trên cùng */
-    /* Ở đây tôi chọn ẩn đi vì mobile màn hình bé, nội dung quan trọng hơn */
-    /* Nếu muốn hiện thì xóa dòng display: none; */
+    /* Ẩn cột mục lục bên trái đi cho gọn trên điện thoại */
     .sidebar-left {
         display: none; 
     }
 }
 
-.content { width: 100%; }
-.content h2 { color: #155d27; border-bottom: 2px solid #155d27; padding-bottom: 5px; margin-top: 30px; }
-
-/* FOOTER */
+/* =========================================
+   7. FOOTER & OVERLAY
+   ========================================= */
 footer { background: #f9f9f9; padding: 30px 0; text-align: center; border-top: 5px solid #155d27; }
 
-/* OVERLAY MOBILE */
+/* Overlay Mobile Menu */
 .overlay {
     height: 100%; width: 0; position: fixed; z-index: 2000;
     top: 0; left: 0; background-color: rgba(0,0,0, 0.95);
@@ -225,108 +215,3 @@ footer { background: #f9f9f9; padding: 30px 0; text-align: center; border-top: 5
 .overlay a { padding: 10px; text-decoration: none; font-size: 20px; color: #818181; display: block; }
 .overlay a:hover { color: #f1f1f1; }
 .overlay .closebtn { position: absolute; top: 20px; right: 30px; font-size: 50px; }
-
-/* =========================================
-   MEDIA QUERY: FIX LỖI DESKTOP
-   ========================================= */
-@media (min-width: 992px) {
-    .desktop-menu { display: flex; } /* Hiện menu ngang */
-    .mobile-toggle { display: none; } /* Ẩn nút 3 gạch */
-    
-    .grid-container { grid-template-columns: repeat(5, 1fr); gap: 20px; }
-    .grid-item { height: 200px; }
-    .grid-item .label { font-size: 14px; }
-
-    .main-layout { flex-direction: row; }
-    .sidebar { display: block; width: 20%; background: #f1f8e9; padding: 15px; border-radius: 5px; height: fit-content; }
-    .ads-bar { display: block; width: 20%; }
-    .content { width: 60%; }
-    
-    .sidebar ul { list-style: none; }
-    .sidebar li a { display: block; padding: 10px; border-bottom: 1px solid #ddd; font-size: 14px; }
-    .sidebar li a:hover { background: #c8e6c9; }
-}
-
-
-/* CSS bài viết*/
-    .article-content {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        color: #333;
-    }
-    .article-content h2 {
-        color: #2c5e2e; /* Màu xanh lá đậm */
-        border-bottom: 2px solid #2c5e2e;
-        padding-bottom: 10px;
-        margin-top: 30px;
-    }
-    .article-content h3 {
-        color: #4a8c4d;
-        margin-top: 20px;
-    }
-    .article-content ul, .article-content ol {
-        margin-bottom: 20px;
-    }
-    .article-content li {
-        margin-bottom: 8px;
-    }
-    /* Style cho bảng so sánh */
-    .neem-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
-    }
-    .neem-table th, .neem-table td {
-        border: 1px solid #ddd;
-        padding: 12px;
-        text-align: left;
-    }
-    .neem-table th {
-        background-color: #f2f2f2;
-        color: #2c5e2e;
-    }
-    /* Style cho các box ghi chú */
-    .note-box {
-        background-color: #f9f9f9;
-        border-left: 5px solid #2c5e2e;
-        padding: 15px;
-        margin: 20px 0;
-        font-style: italic;
-    }
-    .success-box {
-        background-color: #e8f5e9;
-        border: 1px solid #c8e6c9;
-        padding: 15px;
-        border-radius: 5px;
-        margin: 20px 0;
-    }
-    .diy-recipe {
-        background-color: #fff8e1;
-        padding: 15px;
-        border-radius: 8px;
-        border: 1px dashed #ffa000;
-        margin-bottom: 20px;
-    }
-    .faq-item {
-        margin-bottom: 20px;
-    }
-    .faq-question {
-        font-weight: bold;
-        color: #d32f2f;
-        margin-bottom: 5px;
-        display: block;
-    }
-
-/* Tác động vào tất cả danh sách trong phần nội dung bài viết */
-.content ul, .content ol {
-    padding-left: 30px !important; /* Đẩy lùi đầu dòng vào 30px */
-    margin-bottom: 15px;
-}
-
-/* Tăng khoảng cách giữa các dòng cho dễ đọc hơn */
-.content li {
-    margin-bottom: 8px;
-    line-height: 1.6;
-}
-
-
