@@ -198,9 +198,38 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* =========================================
-   7. FOOTER & OVERLAY
+   7. FOOTER (Giao diện Mới: Nền xanh)
    ========================================= */
-footer { background: #f9f9f9; padding: 30px 0; text-align: center; border-top: 5px solid #155d27; }
+footer { 
+    background-color: #155d27; /* Chuyển nền sang màu xanh đậm */
+    padding: 40px 0; 
+    text-align: center; 
+    border-top: 5px solid #0f4c1d; /* Viền trên đậm hơn chút để tạo khối */
+    color: white; /* Chữ mặc định màu trắng */
+}
+
+.footer-logo { 
+    height: 50px; /* Tăng kích thước logo chút cho rõ */
+    width: auto;
+    margin-bottom: 15px;
+    /* Không cần filter vì nền đã xanh, logo trắng sẽ tự nổi */
+}
+
+.footer-hotline {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.footer-hotline strong {
+    color: #ffeb3b; /* Tô màu vàng cho số điện thoại để nổi bật trên nền xanh */
+    font-size: 20px;
+}
+
+.footer-text {
+    font-size: 13px;
+    opacity: 0.8; /* Làm mờ chữ bản quyền một chút cho tinh tế */
+}
 
 .overlay {
     height: 100%; width: 0; position: fixed; z-index: 2000;
@@ -211,3 +240,4 @@ footer { background: #f9f9f9; padding: 30px 0; text-align: center; border-top: 5
 .overlay a { padding: 10px; text-decoration: none; font-size: 20px; color: #818181; display: block; }
 .overlay a:hover { color: #f1f1f1; }
 .overlay .closebtn { position: absolute; top: 20px; right: 30px; font-size: 50px; }
+
